@@ -2,7 +2,7 @@ package boards;
 
 abstract public class Player {
 
-	private Desk desk;
+	protected Desk desk;
 
 	public Player(Desk _d) {
 		desk = _d;

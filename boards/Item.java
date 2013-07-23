@@ -4,7 +4,7 @@ abstract public class Item {
 
 	public final static int STATE_EMPTY = 0;
 
-	private int state = 0;
+	protected int state = STATE_EMPTY;
 
 	public void setState(int newState) {
 		state = newState;
@@ -14,6 +14,6 @@ abstract public class Item {
 		return state;
 	}
 
-	abstract public void display(int x, int y);
+	abstract public void display(int row, int col);
 
 }
