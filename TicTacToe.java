@@ -1,10 +1,10 @@
+import tictactoe.Ai;
 import tictactoe.Console;
 import tictactoe.Manual;
 import tictactoe.TictacDesk;
 import tictactoe.TictacItem;
 import boards.Desk;
 import boards.Messenger;
-import boards.Player;
 
 public class TicTacToe {
 
@@ -13,16 +13,18 @@ public class TicTacToe {
 
 	public static void main(String[] args) {
 		Messenger console = new Console();
-		Desk desk = new TictacDesk(defaultSize, defaultSize, console);
+		TictacDesk desk = new TictacDesk(defaultSize, defaultSize, console);
 		desk.drawField();
 
-		Player[] players = new Player[playerCount];
+		Manual[] players = new Manual[playerCount];
 		players[0] = new Manual(desk, TictacItem.STATE_CROSS);
-		players[1] = new Manual(desk, TictacItem.STATE_NOUGHT);
+		players[1] = new Ai(desk, TictacItem.STATE_NOUGHT);
 
 		int turn = 0, running = Desk.DESK_PROCESS;
 		while (running == Desk.DESK_PROCESS) {
-			console.message("Player #" + (turn % playerCount + 1) + " turns...");
+			console.message(String.format("Player #%d (%s) turns...",
+					turn % playerCount + 1, players[turn % playerCount].playsFor()));
+//			console.message("Player #" + (turn % playerCount + 1) + "("  +  players[turn % playerCount].playsFor() + ") turns...");
 			desk.move(players[turn % playerCount].getMove());
 			desk.drawField();
 			running = desk.isFinished();

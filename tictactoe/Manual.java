@@ -1,6 +1,5 @@
 package tictactoe;
 
-import boards.Desk;
 import boards.Messenger;
 import boards.Move;
 import boards.Player;
@@ -8,17 +7,35 @@ import boards.Player;
 public class Manual extends Player {
 
 	protected int state;
-	Messenger messenger;
+	protected Messenger messenger;
+	protected TictacDesk desk;
 
-	public Manual(Desk desk, int state) {
+	public String playsFor() {
+		if (state == TictacItem.STATE_NOUGHT) {
+			return "noughts";
+		} else {
+			return "crosses";
+		}
+	}
+
+	public Manual(TictacDesk desk, int state) {
 		super(desk);
+		this.desk = desk;
 		messenger = desk.getMessenger();
 		this.state = state;
 	}
 
 	public Move getMove() {
-		int row = messenger.requestInteger("Enter the row") - 1;
-		int col = messenger.requestInteger("Enter the column") - 1;
+		int row, col;
+		boolean isEmpty;
+		do {
+			row = messenger.requestInteger("Enter the row") - 1;
+			col = messenger.requestInteger("Enter the column") - 1;
+			isEmpty = desk.isEmpty(row, col);
+			if (!isEmpty) {
+				messenger.message("Forbidden move");
+			}
+		} while (!isEmpty);
 		return new Move(row, col, state);
 	}
 }

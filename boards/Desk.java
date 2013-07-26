@@ -40,6 +40,14 @@ abstract public class Desk {
 		field[move.row][move.col].setState(move.state);
 	}
 
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
 	abstract public int isFinished();
 
 }
