@@ -4,9 +4,10 @@ import boards.Move;
 
 public class Ai extends Manual {
 
-	private static int[][] shift = new int[][]{ {-1, -1}, {-1, 0}, {-1, 1},
-            { 0, -1},          { 0, 1},
-            { 1, -1}, { 1, 0}, { 1, 1} };
+	private static int[][] shift = new int[][]{
+		{-1, -1}, {-1, 0}, {-1, 1},
+        { 0, -1},          { 0, 1},
+        { 1, -1}, { 1, 0}, { 1, 1} };
 
 	private int competitor;
 	private int width;
@@ -34,6 +35,7 @@ public class Ai extends Manual {
 	public Move getMove() {
 		messenger.message("Me thinking...");
 
+		// 0. if we can win in one move - do it
 		// 1. prevent instant failure
 		// 2. evolve a longest line if it could eventually become consummate
 		// 3. put a sign into the first empty item

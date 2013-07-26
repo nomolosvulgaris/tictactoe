@@ -23,8 +23,8 @@ abstract public class Messenger {
 	}
 
 	public boolean requestBoolean(String msg) {
-		String responce = request(msg + " (y/n)");
-		return responce.equals("y");
+		String response = request(msg + " (y/n)");
+		return response.equals("y");
 	}
 
 }
