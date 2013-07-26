@@ -6,12 +6,12 @@ Tic-tac-toe Game is a training project completed in the course ["Java 101"](http
 ## Usage
 
 Compile the sources with `javac` and run the `TicTacToe.class` file:
-    `java TicTacToe`
+    java TicTacToe
 
 
 ## Requirements
 
-Functionally tested with **Java 1.7.0_17-b02**
+Functionally tested with **Java 1.7.0_17-b02**.
 
 
 ## License
