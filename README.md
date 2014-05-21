@@ -1,7 +1,7 @@
 Tic-tac-toe Game in Java
 ========================
 
-Tic-tac-toe Game is a training project completed in the course ["Java 101"](http://hexlet.org/lesson/java101/).
+Tic-tac-toe Game is a training project completed durning the course ["Java 101"](http://hexlet.org/lesson/java101/).
 
 ## Usage
 
